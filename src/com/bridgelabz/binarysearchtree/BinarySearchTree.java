@@ -1,5 +1,6 @@
 package com.bridgelabz.binarysearchtree;
 
+
 public class BinarySearchTree<K extends Comparable<K>> {
 	private Node<K> root;
 

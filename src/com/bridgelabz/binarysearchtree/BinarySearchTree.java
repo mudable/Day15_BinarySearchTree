@@ -35,6 +35,25 @@ public class BinarySearchTree<K extends Comparable<K>> {
 	public String toString() {
 		return "MyBinary [root=" + root + "]";
 	}
+	  public boolean search(K key)  {
+	        root = search_Recursive(root, key);
+	        if (root!= null)
+	            return true;
+	        else
+	            return false;
+	    }
+	    /*
+	     * Used to search a node recursively
+	     */
+	    public Node search_Recursive(Node root, K key)  {
+	        if (root==null || root.key==key)
+	            return root;
+	        if (root.key.compareTo(key) >0)
+	            return search_Recursive(root.left, key);
+	        else
+	            return search_Recursive(root.right, key);
+	    }
+	
 
 	public static void main(String[] args) {
 		System.out.println("Welcome to BinarySearchTree program");
@@ -55,5 +74,7 @@ public class BinarySearchTree<K extends Comparable<K>> {
 		int size = binaryTree.getSize();
 		System.out.println(binaryTree);
 		System.out.println("size of binary tree:" + size);
+		 boolean result = binaryTree.search(12);
+		System.out.println(result);
 	}
 }
